@@ -7,9 +7,7 @@
         </div>
     </div>
     <div class="card-body">
-            <form class="mt-4 mb-4" action="{{ route('rutin.store', $psiRutin->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
+            <form class="mt-4 mb-4" action="" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="col-md-4 font-weight-bold">
                         <div class="form-group">
@@ -24,11 +22,8 @@
                         </div>
                         <div class="form-group">
                             <label for="lokasi">Lokasi</label>
-                            <select class="form-control" id="lokasi_id" name="lokasi_id" required>
+                            <select class="form-control" id="" name="" required>
                                 <option value="">Pilih Lokasi</option>
-                                @foreach($lokasies as $lokasi)
-                                    <option value="{{ $lokasi->id }}" {{ $psiRutin->lokasi_id == $lokasi->id ? 'selected' : '' }}>{{ $lokasi->lokasi }}</option>
-                                @endforeach
                             </select>
                             <span class="small text-danger">* Tidak boleh kosong</span>
                         </div>
@@ -55,8 +50,7 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <label for="uraian" class="font-weight-bold">Uraian Kegiatan</label>
-                            <textarea type="text" class="form-control" name="uraian" id="summernote" required>
-                                {{ $psiRutin->uraian }}
+                            <textarea type="text" class="form-control" name="" id="summernote" required>
                             </textarea>
                             <span class="small text-danger">* Tidak boleh kosong</span>
                         </div>
@@ -65,9 +59,9 @@
                         <div class="row col-md-12">
                             <div class="col-md-3">
                                 <div>
-                                    <label for="gambar1" class="font-weight-bold">Dokumentasi 1</label>
+                                    <label for="gambar1" class="font-weight-bold">Dokumentasi</label>
                                 </div>
-                                <input onchange="showFile1(event)" type="file" name="" id=""
+                                <input onchange="showFile1(event)" type="file" name="image1" id="image1"
                                     class="btn btn-sm btn-secondary col-sm" />
                                 <img src="" width="150px"  id="file-preview1" class="mt-2 rounded mx-auto d-block" />
                                 {{-- kode munculkan gambar --}}
@@ -86,9 +80,9 @@
                             </div>
                             <div class="col-md-3">
                                 <div>
-                                    <label for="gambar2" class="font-weight-bold">Dokumentasi 2</label>
+                                    <label for="gambar2" class="font-weight-bold">Dokumentasi</label>
                                 </div>
-                                <input onchange="showFile2(event)" type="file" name="" id=""
+                                <input onchange="showFile2(event)" type="file" name="image2" id="image2"
                                     class="btn btn-sm btn-secondary col-sm" />
                                 <img src="" width="150" id="file-preview2" class="mt-2 rounded mx-auto d-block" />
                                 {{-- kode munculkan gambar --}}
@@ -108,9 +102,9 @@
                             </div>
                             <div class="col-md-3">
                                 <div>
-                                    <label for="gambar3" class="font-weight-bold">Dokumentasi 3</label>
+                                    <label for="gambar3" class="font-weight-bold">Dokumentasi</label>
                                 </div>
-                                <input onchange="showFile3(event)" type="file" name="" id=""
+                                <input onchange="showFile3(event)" type="file" name="image3" id="image3"
                                     class="btn btn-sm btn-secondary col-sm" />
                                 <img src="" width="150" id="file-preview3" class="mt-2 rounded mx-auto d-block" />
                                 {{-- kode munculkan gambar --}}
@@ -130,9 +124,9 @@
                             </div>
                             <div class="col-md-3">
                                 <div>
-                                    <label for="gambar4" class="font-weight-bold">Dokumentasi 4</label>
+                                    <label for="gambar4" class="font-weight-bold">Dokumentasi</label>
                                 </div>
-                                <input onchange="showFile4(event)" type="file" name="" id=""
+                                <input onchange="showFile4(event)" type="file" name="image4" id="image4"
                                     class="btn btn-sm btn-secondary col-sm" />
                                 <img src="" width="150" id="file-preview4" class="mt-2 rounded mx-auto d-block" />
                                 {{-- kode munculkan gambar --}}
@@ -148,7 +142,6 @@
                                         reader.readAsDataURL(input.files[0]);
                                     }
                                 </script>
-
                             </div>
                         </div>
                     </div>
@@ -156,8 +149,7 @@
                 </div>
                 <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-primary  mt-4 mr-2 font-weight-bold">SIMPAN</button>
-                    <a href="{{ route('rutin.index') }}"
-                        class="btn btn-secondary  mt-4 ml-2 font-weight-bold">KEMBALI</a>
+                    <a href="" class="btn btn-secondary  mt-4 ml-2 font-weight-bold">KEMBALI</a>
                 </div>
             </form>
         </div>
