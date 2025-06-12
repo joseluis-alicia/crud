@@ -7,8 +7,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form class="mt-4 mb-4" action="{{ route('rutin.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
+            <form class="mt-4 mb-4" action="" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="col-md-4 font-weight-bold">
                         <div class="form-group">
@@ -22,50 +21,35 @@
                             <span class="small text-danger">* Tidak boleh kosong</span>
                         </div>
                         <div class="form-group">
-                            <label for="lokasi_id">Lokasi</label>
-                            <select name="lokasi_id" id="lokasi_id" class="form-control" required>
+                            <label for="">Lokasi</label>
+                            <select name="" id="" class="form-control" required>
                                 <option value="">Pilih Lokasi</option>
-                                @foreach ($lokasie as $lokasi )
-                                    <option value="{{ $lokasi->id }}">{{ $lokasi->lokasi }}</option>
-                                @endforeach
                             </select>
                             <span class="small text-danger">* Tidak boleh kosong</span>
                         </div>
                         <div class="form-group">
-                            <label for="kegiatan_id">Kegiatan</label>
-                            <select name="kegiatan_id" id="kegiatan_id" class="form-control" required>
+                            <label for="">Kegiatan</label>
+                            <select name="" id="" class="form-control" required>
                                 <option value="">Pilih Kegiatan</option>
-                                @foreach ($kegiatane as $kegiatan )
-                                    <option value="{{ $kegiatan->id }}">{{ $kegiatan->kegiatan }}</option>
-                                @endforeach
                             </select>
                             <span class="small text-danger">* Tidak boleh kosong</span>
                         </div>
                         <div class="form-group">
-                            <label for="qanun_id">Qanun/Perda</label>
-                            <select name="qanun_id" id="qanun_id" class="form-control">
+                            <label for="">Qanun/Perda</label>
+                            <select name="" id="" class="form-control">
                                 <option value="">Pilih Qanun/Perda</option>
-                                @foreach ($qanune as $qanun )
-                                    <option value="{{ $qanun->id }}">{{ $qanun->qanun }} - {{ $qanun->tentang }}</option>
-                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="kasus_id">Kasus</label>
-                            <select name="kasus_id" id="kasus_id" class="form-control">
+                            <select name="" id="" class="form-control">
                                 <option value="">Pilih Kasus</option>
-                                @foreach ($kasuse as $kasus )
-                                    <option value="{{ $kasus->id }}">{{ $kasus->kasus }}</option>
-                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="tahun_id">Tahun</label>
-                            <select name="tahun_id" id="tahun_id" class="form-control">
+                            <label for="">Tahun</label>
+                            <select name="" id="" class="form-control">
                                 <option value="">Pilih Tahun</option>
-                                @foreach ($tahune as $tahun )
-                                    <option value="{{ $tahun->id }}">{{ $tahun->tahun }}</option>
-                                @endforeach
                             </select>
                             <span class="small text-danger">* Tidak boleh kosong</span>
                         </div>
@@ -73,8 +57,8 @@
 
                     <div class="col-md-8">
                         <div class="form-group">
-                            <label for="uraian" class="font-weight-bold">Uraian Kegiatan</label>
-                            <textarea type="text" class="form-control" name="uraian" id="summernote" required></textarea>
+                            <label for="" class="font-weight-bold">Uraian Kegiatan</label>
+                            <textarea type="text" class="form-control" name="" id="summernote" required></textarea>
                             <span class="small text-danger">* Tidak boleh kosong</span>
                         </div>
                         <br/>
@@ -105,7 +89,7 @@
                                 <div>
                                     <label for="gambar2" class="font-weight-bold">Dokumentasi</label>
                                 </div>
-                                <input onchange="showFile2(event)" type="file" name="" id=""
+                                <input onchange="showFile2(event)" type="file" name="image2" id="image2"
                                     class="btn btn-sm btn-secondary col-sm" />
                                 <img src="" width="150" id="file-preview2" class="mt-2 rounded mx-auto d-block" />
                                 {{-- kode munculkan gambar --}}
@@ -127,7 +111,7 @@
                                 <div>
                                     <label for="gambar3" class="font-weight-bold">Dokumentasi</label>
                                 </div>
-                                <input onchange="showFile3(event)" type="file" name="" id=""
+                                <input onchange="showFile3(event)" type="file" name="image3" id="image3"
                                     class="btn btn-sm btn-secondary col-sm" />
                                 <img src="" width="150" id="file-preview3" class="mt-2 rounded mx-auto d-block" />
                                 {{-- kode munculkan gambar --}}
@@ -149,7 +133,7 @@
                                 <div>
                                     <label for="gambar4" class="font-weight-bold">Dokumentasi</label>
                                 </div>
-                                <input onchange="showFile4(event)" type="file" name="" id=""
+                                <input onchange="showFile4(event)" type="file" name="image4" id="image4"
                                     class="btn btn-sm btn-secondary col-sm" />
                                 <img src="" width="150" id="file-preview4" class="mt-2 rounded mx-auto d-block" />
                                 {{-- kode munculkan gambar --}}
@@ -173,8 +157,7 @@
                 </div>
                 <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-primary  mt-4 mr-2 font-weight-bold">SIMPAN</button>
-                    <a href="{{ route('rutin.index') }}"
-                        class="btn btn-secondary  mt-4 ml-2 font-weight-bold">KEMBALI</a>
+                    <a href="" class="btn btn-secondary  mt-4 ml-2 font-weight-bold">KEMBALI</a>
                 </div>
             </form>
         </div>
