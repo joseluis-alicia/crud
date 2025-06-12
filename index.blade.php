@@ -1,0 +1,84 @@
+@extends('layouts.apps')
+@section('content')
+    <div class="card mt-3 mb-4">
+        <div class="card-header font-weight-bold text-center">
+            <div class="card-title text-uppercase">
+                data pengawasan syariat islam
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="mb-4 mt-2 text-uppercase">
+                    <a href="{{ route('rutin.create') }}" class="btn btn-primary btn-sm font-weight-bold">Buat Data</a>
+                </div>
+                <table class="table table-bordered table-sm" style="font-size:14px ">
+                    <thead class="text-center">
+                        <tr>
+                            <th style="width: 3%">No</th>
+                            <th style="width:50%">Uraian Kegiatan</th>
+                            <th style="width: 8%">Lokasi</th>
+                            <th style="width: 8%">Kegiatan</th>
+                            <th style="width: 8%">Qanun/Perda</th>
+                            <th style="width: 8%">Kasus</th>
+                            <th style="width: 5%">Tahun</th>
+                            <th style="width: 3%">Gbr</th>
+                            <th style="width: 3%">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($psiRutin as $no => $psirutin)
+                            <tr>
+                                <td class="text-right pr-2">{{ $no + 1 }}.</td>
+                                <td>{!! $psirutin->uraian !!}</td>
+                                <td class="text-center">
+                                    <div class="d-flex-sm">{{ $psirutin->kegiatan->kegiatan }}</div>
+                                </td>
+                                <td class="text-center">{{ $psirutin->lokasi->lokasi }}</td>
+                                <td class="text-center">{{ $psirutin->qanun->qanun }}</td>
+                                <td class="text-center">{{ $psirutin->kasus->kasus }}</td>
+                                <td class="text-center">{{ $psirutin->tahun->tahun }}</td>
+                                <td class="text-center">
+                                    @if ($psirutin->image1)
+                                        <img src="{{ asset('storage/' . $psirutin->image1) }}" width="80px"
+                                            height="50px" />
+                                    @endif
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex justify-content-center">
+
+                                        <a href="{{ route('rutin.edit', $psirutin->id) }}" class="btn btn-sm"
+                                            title="EDIT">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16"
+                                                height="16">
+                                                <path
+                                                    d="M17.263 2.177a1.75 1.75 0 0 1 2.474 0l2.586 2.586a1.75 1.75 0 0 1 0 2.474L19.53 10.03l-.012.013L8.69 20.378a1.753 1.753 0 0 1-.699.409l-5.523 1.68a.748.748 0 0 1-.747-.188.748.748 0 0 1-.188-.747l1.673-5.5a1.75 1.75 0 0 1 .466-.756L14.476 4.963ZM4.708 16.361a.26.26 0 0 0-.067.108l-1.264 4.154 4.177-1.271a.253.253 0 0 0 .1-.059l10.273-9.806-2.94-2.939-10.279 9.813ZM19 8.44l2.263-2.262a.25.25 0 0 0 0-.354l-2.586-2.586a.25.25 0 0 0-.354 0L16.061 5.5Z">
+                                                </path>
+                                            </svg>
+                                        </a>
+                                        <a href="{{ route('rutin.show', $psirutin->id) }}" class="btn btn-sm"
+                                            title="LIHAT">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16"
+                                                height="16">
+                                                <path d="M15.5 12a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"></path>
+                                                <path
+                                                    d="M12 3.5c3.432 0 6.124 1.534 8.054 3.241 1.926 1.703 3.132 3.61 3.616 4.46a1.6 1.6 0 0 1 0 1.598c-.484.85-1.69 2.757-3.616 4.461-1.929 1.706-4.622 3.24-8.054 3.24-3.432 0-6.124-1.534-8.054-3.24C2.02 15.558.814 13.65.33 12.8a1.6 1.6 0 0 1 0-1.598c.484-.85 1.69-2.757 3.616-4.462C5.875 5.034 8.568 3.5 12 3.5ZM1.633 11.945a.115.115 0 0 0-.017.055c.001.02.006.039.017.056.441.774 1.551 2.527 3.307 4.08C6.691 17.685 9.045 19 12 19c2.955 0 5.31-1.315 7.06-2.864 1.756-1.553 2.866-3.306 3.307-4.08a.111.111 0 0 0 .017-.056.111.111 0 0 0-.017-.056c-.441-.773-1.551-2.527-3.307-4.08C17.309 6.315 14.955 5 12 5 9.045 5 6.69 6.314 4.94 7.865c-1.756 1.552-2.866 3.306-3.307 4.08Z">
+                                                </path>
+                                            </svg>
+                                        </a>
+
+                                        <form action="{{ route('rutin.destroy', $psirutin->id) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+@endsection
